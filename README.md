@@ -10,8 +10,8 @@ The goal of this project is to design and implement a comprehensive **Data Prepa
 The project demonstrates how data quality affects machine learning outcomes by comparing results between the original "messy" data and our final "cleaned" version.
 
 ## 👥 Authors
-* **Mattia Brianti**
-* **Alex Hathaway**
+- **[Mattia Brianti](https://github.com/MattiaBrianti)**
+- **[Alex Hathaway](https://github.com/Alexhath)**
 
 ---
 
