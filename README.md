@@ -1,81 +1,57 @@
-# FIFA_dataset_data-information-quality-project
-Data and Information Quality Project: FIFA Dataset Preparation
-This repository contains the Data and Information Quality (DIQ) project developed by Alex Hathaway and Mattia Brianti. The goal of this project is to design and implement a complete Data Preparation Pipeline for a "dirty" FIFA dataset, ensuring it reaches a high standard of quality for potential downstream data science tasks.
+# ⚽ FIFA Dataset - Data & Information Quality Project 
 
+🏆 **Final Grade: 4/4 (Maximum Score)**
 
-👥 Contributors
-Alex Hathaway
+This repository contains the project developed for the **Data and Information Quality** course (A.Y. 2025/2026) at **Politecnico di Milano**.
 
-Mattia Brianti
+## 📖 Project Description
+The goal of this project is to design and implement a comprehensive **Data Preparation and Analysis pipeline**. We started with a "dirty" dataset containing the attributes of approximately 19,000 football players from **FIFA**, which is widely recognized as the world's leading and most iconic football video game series.
 
-📖 Project Overview
-The project follows a structured pipeline to transform a raw, inconsistent dataset containing approximately 18,979 players and 77 attributes into a clean, standardized format.
+The project demonstrates how data quality affects machine learning outcomes by comparing results between the original "messy" data and our final "cleaned" version.
 
+## 👥 Authors
+* **Mattia Brianti**
+* **Alex Hathaway**
 
-The Data Preparation Pipeline
+---
 
-Data Profiling & Exploration: Preliminary analysis of data types, shapes, and column meanings.
+## 🛠️ The Pipeline
 
+### 1. Data Preparation (The "Cleaning" Phase)
+We transformed the raw dataset through several rigorous steps to ensure high information quality:
+* 📊 **Data Profiling**: Initial assessment of data distributions and types using `ydata-profiling`.
+* 🔄 **Standardization**: 
+    * Expanded over 20 abbreviated columns (e.g., `OVA` → `Overall`, `POT` → `Potential`) for clarity.
+    * Converted star-ratings (★) and currency strings (e.g., €100M) into numerical formats.
+    * Fixed inconsistent date formats and handled player contract/loan status.
+* 🔍 **Error Detection & Correction**:
+    * **Outliers**: Identified and managed anomalous values using the **Local Outlier Factor (LOF)** algorithm.
+    * **Missing Values**: Handled null values using context-aware imputation.
+* 👯 **Data Deduplication**: Performed **Record Linkage** to identify potential duplicates, using Jaro-Winkler distance for names and club similarity.
 
-Data Quality Assessment: Checking for data quality dimensions, specifically focusing on Duplication (identifying redundant records) and Completeness (standardizing and quantifying missing values like pd.NA).
+### 2. Data Analysis (The "Validation" Phase)
+To prove the value of our cleaning process, we performed a **Regression Task**:
+* **Objective**: Predict a player's **Overall Rating** based on their physical and technical skills.
+* **Model**: **K-Nearest Neighbors (KNN) Regressor**.
+* **Preprocessing**: Applied **RobustScaler** to mitigate the impact of any remaining extreme values.
+* **Comparison**: We compared the **RMSE (Root Mean Squared Error)** of the model trained on the dirty data versus the cleaned data, proving that data quality significantly improves predictive reliability.
 
+---
 
-Data Transformation & Standardization:
+## 💻 Tech Stack
+* **Language**: Python 🐍
+* **Environment**: Google Colab / Jupyter Notebook
+* **Libraries**: `Pandas`, `NumPy`, `Scikit-Learn`, `RecordLinkage`, `Ydata-profiling`, `Matplotlib`, `Seaborn`.
 
+---
 
-Column Renaming: Expanding technical abbreviations (e.g., OVA to Overall, POT to Potential) to improve interpretability for non-technical users.
-
-String Cleaning: Removing leading white spaces and special characters from columns like Club.
-
-Feature Engineering: Converting star-rated columns (e.g., Weak Foot ★) into pure integer formats.
-
-
-Temporal Standardization: Parsing and merging complex Contract and Loan Date End information into standardized Contract Start, Contract End, and Player Status columns.
-
-
-Data Deduplication: Identifying and handling non-exact duplicates to ensure unique player records.
-
-🛠️ Technologies & Libraries
-The project is implemented in Python within a Google Colab environment, utilizing the following stack:
-
-Pandas & NumPy: For data manipulation and numerical operations.
-
-Ydata-profiling: For automated generation of detailed data profile reports.
-
-Scikit-Learn: Used for outlier detection (Local Outlier Factor) and data scaling (RobustScaler).
-
-Record Linkage: For deduplication and record matching tasks.
-
-Matplotlib & Seaborn: For data visualization.
-
-📂 Project Structure
-DIQ_Project.ipynb: The main Jupyter Notebook containing the full execution of the pipeline.
-
-Dataset/: Contains the original fifa.csv and the final cleaned version.
-
-Reports/: (If applicable) Contains the HTML profiling reports generated during the assessment phase.
-
-🚀 How to Run
-Clone the repository:
-
-Bash
-
-git clone https://github.com/Alexhath/FIFA_dataset_data-information-quality-project.git
-Open the DIQ_Project.ipynb file in Google Colab or a local Jupyter environment.
-
-Ensure all dependencies are installed:
-
-Python
-
-pip install pandas numpy recordlinkage ydata-profiling scikit-learn
-Run the cells sequentially to observe the transformation from a dirty dataset to a cleaned one.
-
-📊 Results Summary
-
-Initial Completeness: ~98.6% across the entire dataset, with specific gaps identified in loan dates and "hits".
-
-
-Duplicate Status: Verified no exact row-wise duplicates exist, allowing for deeper deduplication analysis based on player attributes.
-
-
-Standardization: Successfully expanded 20+ columns for better readability and handled multiple inconsistent date formats.
+## 📂 Repository Structure
+```text
+📦 FIFA_dataset_data-information-quality-project
+ ┣ 📂 Dataset
+ ┃ ┣ 📜 fifa.csv              # The original "dirty" dataset
+ ┃ ┗ 📜 FIFA_CLEANED.csv      # The final high-quality dataset
+ ┣ 📂 Report
+ ┃ ┗ 📜 Report.pdf            # Detailed documentation of all choices and results
+ ┣ 📜 FIFA_Project_code.ipynb # Full Python implementation (Colab compatible)
+ ┗ 📜 README.md               # Project documentation
