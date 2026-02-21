@@ -5,9 +5,7 @@
 This repository contains the project developed for the **Data and Information Quality** course (A.Y. 2025/2026) at **Politecnico di Milano**.
 
 ## 📖 Project Description
-The goal of this project is to design and implement a comprehensive **Data Preparation and Analysis pipeline**. We started with a "dirty" dataset containing the attributes of approximately 19,000 football players from **FIFA**, which is widely recognized as the world's leading and most iconic football video game series.
-
-The project demonstrates how data quality affects machine learning outcomes by comparing results between the original "messy" data and our final "cleaned" version.
+The goal of this project is to design and implement a comprehensive data preparation pipeline, and then perform a data analysis to demonstrate the effectiveness of the cleaning process. We started with a "dirty" dataset containing the attributes of approximately 19,000 football players from **FIFA**, which is widely recognized as the world's leading and most iconic football video game series.
 
 ## 👥 Authors
 - **[Mattia Brianti](https://github.com/MattiaBrianti)**
